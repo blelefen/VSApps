@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalkWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="600" Background="#FF9D9494">
     <Grid>
-        
+        <Button Content="7" HorizontalAlignment="Left" Margin="58,171,0,0" VerticalAlignment="Top" Width="70" Height="70" />
+        <Button Content="8" HorizontalAlignment="Left" Margin="152,171,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="9" HorizontalAlignment="Left" Margin="250,171,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="6" HorizontalAlignment="Left" Margin="250,269,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="5" HorizontalAlignment="Left" Margin="152,269,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="4" HorizontalAlignment="Left" Margin="58,269,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="1" HorizontalAlignment="Left" Margin="58,368,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="2" HorizontalAlignment="Left" Margin="152,368,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="3" HorizontalAlignment="Left" Margin="250,368,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <TextBox HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="574"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="471,131,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="/" HorizontalAlignment="Left" Margin="471,229,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="380,131,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="*" HorizontalAlignment="Left" Margin="380,229,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="x*x" HorizontalAlignment="Left" Margin="471,328,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="380,328,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
+        <Button Content="=" HorizontalAlignment="Left" Margin="357,431,0,0" VerticalAlignment="Top" Width="207" Height="70"/>
+
     </Grid>
 </Window>
