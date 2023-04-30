@@ -16,15 +16,18 @@
         <Button x:Name="Button1" Content="1" FontSize="30" HorizontalAlignment="Left" Margin="58,368,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button1_Click"/>
         <Button x:Name="Button2" Content="2" FontSize="30" HorizontalAlignment="Left" Margin="152,368,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button2_Click"/>
         <Button x:Name="Button3" Content="3" FontSize="30" HorizontalAlignment="Left" Margin="250,368,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button3_Click"/>
-        <Button x:Name="Button_minus" Content="-" FontSize="30" HorizontalAlignment="Left" Margin="471,131,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_minus_Click"/>
-        <Button x:Name="Button_divide" Content="/" FontSize="30" HorizontalAlignment="Left" Margin="471,229,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
-        <Button x:Name="Button_plus" Content="+" FontSize="30" HorizontalAlignment="Left" Margin="380,131,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_plus_Click"/>
-        <Button x:Name="Button_multiply" Content="*" FontSize="30" HorizontalAlignment="Left" Margin="380,229,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
-        <Button x:Name="Button_square" Content="x^2" FontSize="30" HorizontalAlignment="Left" Margin="471,328,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
-        <Button x:Name="Button_root" Content="√" FontSize="30" HorizontalAlignment="Left" Margin="380,328,0,0" VerticalAlignment="Top" Width="70" Height="70"/>
-        <Button x:Name="Button_result" Content="=" FontSize="30" HorizontalAlignment="Left" Margin="357,431,0,0" VerticalAlignment="Top" Width="207" Height="70" Click="Button_result_Click"/>
+        <Button x:Name="Button_Minus" Content="-" FontSize="30" HorizontalAlignment="Left" Margin="471,131,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_minus_Click"/>
+        <Button x:Name="Button_Div" Content="/" FontSize="30" HorizontalAlignment="Left" Margin="471,229,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Div_Click"/>
+        <Button x:Name="Button_Plus" Content="+" FontSize="30" HorizontalAlignment="Left" Margin="380,131,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_plus_Click"/>
+        <Button x:Name="Button_Mult" Content="*" FontSize="30" HorizontalAlignment="Left" Margin="380,229,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Mult_Click"/>
+        <Button x:Name="Button_square" Content="x^2" FontSize="30" HorizontalAlignment="Left" Margin="471,328,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_square_Click"/>
+        <Button x:Name="Button_root" Content="√" FontSize="30" HorizontalAlignment="Left" Margin="380,328,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_root_Click"/>
+        <Button x:Name="Button_result" Content="=" FontSize="30" HorizontalAlignment="Left" Margin="357,475,0,0" VerticalAlignment="Top" Width="207" Height="70" Click="Button_result_Click"/>
         <Label x:Name="Label" Content="0" HorizontalContentAlignment="Left" FontSize="70"  HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top" Width="574" Height="100" Background="#FFE7E3E3" RenderTransformOrigin="0.5,0.5" FlowDirection="RightToLeft" Padding="5,5,15,5" FontFamily="Papyrus"/>
         <Button x:Name="Button0" Content="0" FontSize="30" HorizontalAlignment="Left" Margin="152,453,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button0_Click"/>
+        <Button x:Name="Button_Clear" Content="CE" FontSize="30" HorizontalAlignment="Left" Margin="429,419,0,0" VerticalAlignment="Top" Width="70" Height="51" Click="Button_Clear_Click"/>
+        <Button x:Name="Button_Change" Content="+/-" FontSize="30" HorizontalAlignment="Left" Margin="42,475,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Change_Click"/>
+        <Button x:Name="Button_Point" Content="," FontSize="30" HorizontalAlignment="Left" Margin="250,475,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Point_Click"/>
 
     </Grid>
 </Window>

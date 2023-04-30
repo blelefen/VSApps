@@ -20,147 +20,110 @@ namespace CalkWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        int lastOper = 0;            //тип последней операции
-        bool itog = false;            //был нажат равно
-        double lastNum = 0;
-        bool labelEmpty = true;      //поле последнего действия не было нажато ни одной цифры
-        double a=0;
+        Calc C;
         
-
-        bool b=false;               //защита от повторного нажатия кнопки действия
-
-        double bilo = 0;
-        double ekran = 0;
-
-
         public MainWindow()
         {
             InitializeComponent();
-            Label.Content = null;
+            C = new Calc();
+            Label.Content = "0";
             
+            
+        }
+
+        private bool CanPress()
+        {
+            if (!Button_Minus.IsEnabled)
+                return false;
+            if (!Button_Div.IsEnabled)
+                return false;
+            if (!Button_Mult.IsEnabled)
+                return false;
+            if (!Button_Plus.IsEnabled)
+                return false;
+
+            return true;
+        }
+        private void FreeButtons()
+        {
+            Button_Minus.IsEnabled = true;
+            Button_Plus.IsEnabled = true;
+            Button_Mult.IsEnabled = true;
+            Button_Div.IsEnabled = true;
+
+        }
+        private void CorrectNumber()
+        {
+            string str = Label.Content.ToString();
+            if(str.IndexOf('∞') != -1)
+            {
+                str = str.Substring(0, str.Length - 1);
+            }
+            if (str[0] == '0' && (str.IndexOf(",") != 1))
+                str = str.Remove(0, 1);
+            if (str[0] == '-')
+                if (str[1] == '0' && (str.IndexOf(",") != 2))
+                    str = str.Remove(1, 1);
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            if (labelEmpty == true)
-            {
-                itog = false;
-                labelEmpty = false;
-                Label.Content = null;
-                
-            }
             Label.Content += "1";
-            b = false;
+            CorrectNumber();
         }
-        
+
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            if (labelEmpty == true)
-            {
-                itog = false;
-                labelEmpty = false;
-                Label.Content = null;
-               
-            }
             Label.Content += "2";
-            b = false;
+            CorrectNumber();
         }
 
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
-            if (labelEmpty == true)
-            {
-                itog = false;
-                labelEmpty = false;
-                Label.Content = null;
-                
-            }
             Label.Content += "3";
-            b = false;
+            CorrectNumber();
         }
 
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
-            if (labelEmpty == true)
-            {
-                itog = false;
-                labelEmpty = false;
-                Label.Content = null;
-            }
             Label.Content += "4";
-            b = false;
+            CorrectNumber();
         }
 
         private void Button5_Click(object sender, RoutedEventArgs e)
         {
-            if (labelEmpty == true)
-            {
-                itog = false;
-                labelEmpty = false;
-                Label.Content = null;
-}
             Label.Content += "5";
-            b = false;
+            CorrectNumber();
         }
 
         private void Button6_Click(object sender, RoutedEventArgs e)
         {
-            if (labelEmpty == true)
-            {
-                itog = false;
-                labelEmpty = false;
-                Label.Content = null;
-}
             Label.Content += "6";
-            b = false;
+            CorrectNumber();
         }
 
         private void Button7_Click(object sender, RoutedEventArgs e)
         {
-            if (labelEmpty == true)
-            {
-                itog = false;
-                labelEmpty = false;
-                Label.Content = null;
-}
             Label.Content += "7";
-            b = false;
+            CorrectNumber();
         }
 
         private void Button8_Click(object sender, RoutedEventArgs e)
         {
-            if (labelEmpty == true)
-            {
-                itog = false;
-                labelEmpty = false;
-                Label.Content = null;
-}
             Label.Content += "8";
-            b = false;
+            CorrectNumber();
         }
 
         private void Button9_Click(object sender, RoutedEventArgs e)
         {
-            if (labelEmpty == true)
-            {
-                itog = false;
-                labelEmpty = false;
-                Label.Content = null;
-            }
             Label.Content += "9";
-            b = false;
         }
-         
+
         private void Button0_Click(object sender, RoutedEventArgs e)
         {
-            if (labelEmpty == true)
-            {
-                itog = false;
-                labelEmpty = false;
-                Label.Content = null;
-            }
             Label.Content += "0";
-            b = false;
+            CorrectNumber();
+
         }
 
 
@@ -169,143 +132,113 @@ namespace CalkWPF
 
         private void Button_plus_Click(object sender, RoutedEventArgs e)
         {
-            lastOper = 1;
-
-            if (b == false)
+            if (CanPress())
             {
-                if (labelEmpty == false)
-                {
-                    if (itog == false)
-                    {
-                        labelEmpty = true;
-                        lastNum = Convert.ToDouble(Label.Content);
-                        a = a + Convert.ToDouble(Label.Content);
-
-                        Label.Content = a;
-                        b = true;
-                    }
-                    else if (itog == true)
-                    {
-                        a =Convert.ToDouble(Label.Content);
-                        b = true;
-                    }
-                }
-                else if (labelEmpty == true)
-                {
-                    if (itog == true)
-                    {
-                        itog = false;
-                        a = Convert.ToDouble(Label.Content);
-                        Label.Content = a;
-                        b = true;
-                    }
-                    else if (itog == false)
-                    {
-                        a = a + lastNum;
-                        Label.Content = a;
-                        b = true;
-                    }
-
-                }
+                C.Put_A(Convert.ToDouble(Label.Content));
+                Button_Plus.IsEnabled = false;
+                Label.Content = "0";
             }
-            else
-            {
 
-            }
-            
         }
 
         private void Button_result_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (Button_Mult.IsEnabled)
+                Label.Content = C.Multiplication(Convert.ToDouble(Label.Content)).ToString();
+            if (Button_Div.IsEnabled)
+                Label.Content = C.Division(Convert.ToDouble(Label.Content)).ToString();
+            if (Button_Plus.IsEnabled)
+                Label.Content = C.Sum(Convert.ToDouble(Label.Content)).ToString();
+            if (Button_Minus.IsEnabled)
+                Label.Content = C.Substraction(Convert.ToDouble(Label.Content)).ToString();
 
-            if (labelEmpty == false)
-            {
-                if (lastOper == 0)
-                {
-                    Label.Content = "0";
-                }
-
-                else if (lastOper == 1)               //нажат ПЛЮС
-                {
-
-                    /*a = a + Convert.ToDouble(Label.Content);
-                    lastNum = a;
-                    Label.Content = a;*/
-
-                }
-                else if (lastOper == 2)
-                {
-                    ekran = Convert.ToDouble(Label.Content);
-                    a = bilo - ekran;
-                }
-            }
-            else if (labelEmpty == true)
-            {
-                if (itog == false)
-                {
-                    a = Convert.ToDouble(Label.Content);
-                }
-                else
-                {
-                    Label.Content = "0";
-                    lastNum = 0;
-                    a = 0;
-                }
-            }
-
-
-            itog = true;
-            labelEmpty = true;
-            lastOper = 0;
-            Label.Content = a;
-            
-            
         }
-
-
-
-
         private void Button_minus_Click(object sender, RoutedEventArgs e)
         {
-            lastOper = 2;              //последняя операция минус
-            labelEmpty = true;          //была совершена операция
-            if (Label.Content == null)
+            if (CanPress())
             {
-                ekran = Convert.ToDouble(Label.Content);
+                C.Put_A(Convert.ToDouble(Label.Content));
+                Button_Minus.IsEnabled = false;
+                Label.Content = "0";
+            }
+        }
+
+        private void Button_Clear_Click(object sender, RoutedEventArgs e)
+        {
+            FreeButtons();
+            Label.Content = "0";
+            C.Clear_A();
+        }
+
+        private void Button_Change_Click(object sender, RoutedEventArgs e)
+        {
+            string str = Label.Content.ToString();
+
+            if (str[0] == '-')
+            {
+                str = str.Remove(0, 1);
             }
             else
             {
-
+                str = '-' + str;
             }
-
-
-            if (b == false)            //защита от двойного нажатия кнопок операций
-            {
-                b = true;
-
-                if (itog == false)
-                {
-                    
-                        bilo = Convert.ToDouble(Label.Content);
-                        Label.Content = bilo - ekran;
-                    
-                }
-                else if(itog==true)
-                {
-                    bilo = Convert.ToDouble(Label.Content);
-                    
-                }
-
-            }
-
-
-
-
-            else if (b==true)
-            { }
-            
+            Label.Content = str;
         }
 
+        private void Button_Point_Click(object sender, RoutedEventArgs e)
+        {
+            string str = Label.Content.ToString();
+            if((str.IndexOf(',') == -1) && (str.IndexOf('∞')==-1))
+            {
+                str += ",";
+            }
+
+        }
+
+        private void Button_Mult_Click(object sender, RoutedEventArgs e)
+        {
+            if(CanPress())
+            {
+                C.Put_A(Convert.ToDouble(Label.Content));
+                Button_Mult.IsEnabled = false;
+                Label.Content = "0";
+            }
+        }
+
+        private void Button_Div_Click(object sender, RoutedEventArgs e)
+        {
+            if(CanPress())
+            {
+                C.Put_A(Convert.ToDouble(Label.Content));
+                Button_Div.IsEnabled = false;
+                Label.Content = "0";
+            }
+        }
+
+        private void Button_square_Click(object sender, RoutedEventArgs e)
+        {
+            if(CanPress())
+            {
+                C.Put_A(Convert.ToDouble(Label.Content));
+                Label.Content = C.Square().ToString();
+                C.Clear_A();
+                FreeButtons();
+            }
+        }
+
+        private void Button_root_Click(object sender, RoutedEventArgs e)
+        {
+            if (CanPress())
+            {
+                C.Put_A(Convert.ToDouble(Label.Content));
+                Label.Content = C.Sqrt().ToString();
+                C.Clear_A();
+                FreeButtons();
+            }
+        }
     }
+
+
+
+    
 }
